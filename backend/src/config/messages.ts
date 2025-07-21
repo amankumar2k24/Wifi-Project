@@ -1,0 +1,15 @@
+export const MESSAGE = {
+    LOGIN_SUCCESS: 'Login successful',
+    REGISTER_SUCCESS: 'Registration successful',
+    PAYMENT_CREATED: 'Payment created successfully',
+    PAYMENTS_FETCHED: 'Payments fetched successfully',
+    PAYMENT_UPDATED: 'Payment status updated successfully',
+    USER_DEACTIVATED: 'User deactivated successfully',
+    NOTIFICATION_SENT: 'Notification sent successfully',
+    PROFILE_UPDATED: 'Profile updated successfully',
+    USER_NOT_FOUND: 'User not found',
+    PAYMENT_NOT_FOUND: 'Payment not found',
+    INVALID_CREDENTIALS: 'Invalid credentials',
+    RESET_LINK_SENT: 'Reset link sent successfully',
+    PASSWORD_RESET_SUCCESS: 'Password reset successfully',
+};

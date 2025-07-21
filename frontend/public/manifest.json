@@ -1,0 +1,15 @@
+{
+    "name": "WiFi Operator Dashboard",
+    "short_name": "WiFi Dashboard",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/icons/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

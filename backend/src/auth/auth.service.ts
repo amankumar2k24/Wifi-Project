@@ -10,6 +10,7 @@ import { ResetPasswordDto } from './dtos/reset-password.dto';
 import { MESSAGE } from '../config/messages';
 import * as nodemailer from 'nodemailer';
 import { JWT_SECRET } from '../constants';
+import { Role, Status } from 'src/users/user.enum';
 
 @Injectable()
 export class AuthService {
@@ -26,6 +27,7 @@ export class AuthService {
         const isPasswordValid = await bcrypt.compare(loginDto.password, user.password);
         if (!isPasswordValid) throw new UnauthorizedException(MESSAGE.INVALID_CREDENTIALS);
 
+        // Make sure to pass the enum value directly, not a string representation
         const payload = { sub: user.id, email: user.email, role: user.role };
         return {
             id: user.id,
@@ -39,10 +41,12 @@ export class AuthService {
     async register(registerDto: RegisterDto) {
         const hashedPassword = await bcrypt.hash(registerDto.password, 10);
         const user = await this.userModel.create({
-            ...registerDto,
+            email: registerDto.email,
+            name: registerDto.name,
             password: hashedPassword,
-            role: 'USER',
-        });
+            role: Role.USER,
+            status: Status.ACTIVE,
+        } as any);
         return { id: user.id, email: user.email, name: user.name, role: user.role };
     }
 

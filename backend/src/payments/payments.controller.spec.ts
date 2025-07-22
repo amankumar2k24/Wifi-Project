@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PaymentsController } from './payments.controller';
+// Jest testing functions are globally available
 
 describe('PaymentsController', () => {
   let controller: PaymentsController;

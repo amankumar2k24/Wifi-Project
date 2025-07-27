@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { JWT_SECRET } from '../../constants';
@@ -15,12 +15,13 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
+    Logger.log(`JWT payload: ${JSON.stringify(payload)}`)
     // Make sure role is an enum value, not a string
     const role = payload.role as Role;
-    return { 
-      userId: payload.sub, 
-      email: payload.email, 
-      role: role 
+    return {
+      userId: payload.sub,
+      email: payload.email,
+      role: role
     };
   }
 }

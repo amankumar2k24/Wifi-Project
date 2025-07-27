@@ -4,39 +4,21 @@ import { User } from 'src/users/user.model';
 
 @Table({ tableName: 'notifications', timestamps: true })
 export class Notification extends Model<Notification> {
-    @Column({
-        type: DataType.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-    })
+    @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true, })
     declare id: number;
 
     @ForeignKey(() => User)
-    @Column({
-        type: DataType.INTEGER,
-        allowNull: false,
-    })
-    userId!: number;
+    @Column({ type: DataType.INTEGER, allowNull: false, })
+    declare userId: number;
 
     @BelongsTo(() => User)
-    user!: User;
+    user: User;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    message!: string;
+    @Column({ type: DataType.STRING, allowNull: false, })
+    declare message: string;
 
-    @Column({
-        type: DataType.ENUM(...Object.values(NotificationType)),
-        allowNull: false,
-    })
-    type!: NotificationType;
+    @Column({ type: DataType.ENUM(...Object.values(NotificationType)), allowNull: false, })
+    declare type: NotificationType;
 
-    @Column({
-        type: DataType.DATE,
-        allowNull: false,
-        defaultValue: DataType.NOW,
-    })
     declare createdAt: Date;
 }

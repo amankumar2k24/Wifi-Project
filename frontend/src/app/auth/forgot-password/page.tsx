@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { forgotPassword } from '@/lib/api';
+import Link from 'next/link';
+import { FiMail } from 'react-icons/fi';
 
 const ForgotPasswordSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -30,18 +32,50 @@ export default function ForgotPassword() {
     return (
         <div className="flex items-center justify-center min-h-screen">
             <form onSubmit={formik.handleSubmit} className="w-full max-w-md space-y-4">
-                <h1 className="text-2xl font-bold">Forgot Password</h1>
-                <div>
-                    <Input
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        onChange={formik.handleChange}
-                        value={formik.values.email}
-                    />
-                    {formik.errors.email && <p className="text-red-500">{formik.errors.email}</p>}
+
+                <div className="w-full  px-5 md:px-5">
+                    <div className="text-center mb-10">
+                        <h1 className="font-titleFont decoration-[1px] font-semibold text-4xl mb-4">Forget Password</h1>
+                        <p>Enter your email to get reset link</p>
+                    </div>
+
+                    <div className=" w-full">
+                        {/* Email  */}
+                        <div className="flex -mx-3">
+                            <div className="w-full px-3 mb-5">
+                                <label htmlFor="" className="font-titleFont text-base font-semibold text-gray-600">Email</label>
+                                <div className="flex">
+                                    <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                        <FiMail />
+                                    </div>
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        placeholder="Email"
+                                        onChange={formik.handleChange}
+                                        value={formik.values.email}
+                                        className='rounded-xl'
+                                    />
+                                </div>
+                                {formik.errors.email && <p className="text-red-600 text-sm">{formik.errors.email}</p>}
+                            </div>
+                        </div>
+
+                        <div className="flex -mx-3">
+                            <div className="w-full px-3 mb-5">
+                                <Button
+                                    className="bg-primeColor rounded-xl hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 duration-300"
+                                    type="submit"
+                                    disabled={formik.isSubmitting}>
+                                    Send Reset Link
+                                </Button>
+                            </div>
+                        </div>
+                        <div className="text-black text-center">Remember Credentials? 
+                            <Link href="/auth/login" className=' ml-1 hover:text-black/70 duration-300 text-sm'>Sign in</Link>
+                        </div>
+                    </div>
                 </div>
-                <Button type="submit" disabled={formik.isSubmitting}>Send Reset Link</Button>
             </form>
         </div>
     );

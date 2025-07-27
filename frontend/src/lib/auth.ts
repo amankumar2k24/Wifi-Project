@@ -47,8 +47,12 @@ export const authOptions: NextAuthOptions = {
                         email: credentials?.email,
                         password: credentials?.password,
                     });
-                    return { id: data.id, email: data.email, role: data.role, name: data.name } as User;
+
+                    console.log("data from auth.ts===>", data)
+
+                    return { id: data.data.id, email: data.data.email, role: data.data.role, name: data.data.name } as User;
                 } catch (error) {
+                    console.log("error from auth.ts===>", error)
                     return null;
                 }
             },

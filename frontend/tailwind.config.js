@@ -34,6 +34,9 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        primeColor: "#262626",
+        lightText: "#6D6D6D",
+        textGray: "#666666"
       },
       borderRadius: {
         lg: 'var(--radius)',

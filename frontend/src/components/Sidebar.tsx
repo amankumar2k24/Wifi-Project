@@ -6,19 +6,19 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 const adminLinks = [
-    { name: 'Dashboard', href: '/dashboard' },
-    { name: 'All Users', href: '/dashboard/all-users' },
-    { name: 'Payments', href: '/dashboard/payments' },
-    { name: 'Profile', href: '/dashboard/profile' },
-    { name: 'Notifications', href: '/dashboard/notifications' },
+    { name: 'Dashboard', href: '/dashboard/admin' },
+    { name: 'All Users', href: '/dashboard//admin/all-users' },
+    { name: 'Payments', href: '/dashboard//admin/payments' },
+    { name: 'Profile', href: '/dashboard//admin/profile' },
+    { name: 'Notifications', href: '/dashboard//admin/notifications' },
 ];
 
 const userLinks = [
-    { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Payment History', href: '/dashboard/payment-history' },
-    { name: 'Profile', href: '/dashboard/profile' },
-    { name: 'Next Payments', href: '/dashboard/next-payments' },
-    { name: 'Notifications', href: '/dashboard/notifications' },
+    { name: 'Dashboard', href: '/dashboard/user' },
+    { name: 'Payment History', href: '/dashboard/user/payment-history' },
+    { name: 'Profile', href: '/dashboard/user/profile' },
+    { name: 'Next Payments', href: '/dashboard/user/next-payments' },
+    { name: 'Notifications', href: '/dashboard/user/notifications' },
 ];
 
 export function Sidebar({ role }: { role: 'ADMIN' | 'USER' }) {
